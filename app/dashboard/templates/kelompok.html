@@ -1,0 +1,26 @@
+{% extends "dashboard-base.html" %}
+
+{% block title %}Kelompok Praktikum{% endblock %}
+
+{% block dashboard-content %}
+    <h1 class="mt-2 mb-4 text-center">Kelompok Praktikum</h1>
+
+
+    {% csrf_token %}
+
+    <ul class="list-group">
+        {% for praktikum, kelompok in kels.items %}
+
+                <li class="list-group-item">
+                    <p>{{praktikum}}</p>
+
+
+                {% for kel in kelompok %}
+                    <p class="mb-1">{{kel}}</p>
+                {% endfor %}
+                
+                </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

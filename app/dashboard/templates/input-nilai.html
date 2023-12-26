@@ -1,0 +1,35 @@
+{% extends "dashboard-base.html" %}
+
+{% block title %}Input Nilai{% endblock %}
+
+
+{% block dashboard-content %}
+    <h1 class="mt-2 mb-4 text-center">Input Nilai</h1>
+
+    <form method="post" class="form-group">
+        {% csrf_token %}
+
+        <div class="form-group col-md-12 mb-3">
+            <label>Pilih Modul</label>
+            {{ form.id_jadwal }}
+        </div>
+
+        {% if praktikan %}
+        <div class="form-group col-md-12 mb-3">
+            <label>Pilih Praktikan</label>
+            {{ form.id_praktikan }}
+        </div>
+        {% endif %}
+
+        {% if nilai %}
+        <div class="form-group col-md-12 mb-3">
+            <label>Masukkan Nilai</label>
+            {{ form.nilai }}
+        </div>
+        {% endif %}
+
+        <div class="d-flex justify-content-center">
+            <button class="py-2 px-5 text-lg bg-success rounded-2 text-white text-center">Submit</button>
+        </div>
+    </form>
+{% endblock %}

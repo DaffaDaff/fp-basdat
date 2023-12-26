@@ -1,0 +1,21 @@
+{% extends "dashboard-base.html" %}
+
+{% block title %}Nilai Praktikum{% endblock %}
+
+{% block dashboard-content %}
+    <h1 class="mt-2 mb-4 text-center">Nilai Praktikum</h1>
+
+
+    {% csrf_token %}
+
+    <ul class="list-group">
+        {% for nilai in nilais %}
+
+                <li class="list-group-item">
+                    <p>{{nilai.id_jadwal.id_modul}} : {{nilai.nilai}}</p>
+                </li>
+            
+        {% endfor %}
+    </ul>
+
+{% endblock %}

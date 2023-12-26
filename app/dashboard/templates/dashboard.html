@@ -1,0 +1,16 @@
+{% extends "dashboard-base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block dashboard-content %}
+    <h1 class="pt-5 text-center">
+        Selamat Datang, <br> 
+        <strong class="fw-semibold">
+        {% if nama %}
+            {{ nama }}
+        {% else %}
+            {{ request.user.username }} 
+        {% endif %}
+        </strong>
+    </h1>
+{% endblock %}

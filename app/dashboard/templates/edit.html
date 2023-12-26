@@ -1,0 +1,30 @@
+{% extends "dashboard-base.html" %}
+
+{% block title %}Edit Biodata{% endblock %}
+
+
+{% block dashboard-content %}
+    <h1 class="mt-2 mb-4 text-center">Edit Biodata</h1>
+
+    <form method="post" action="." enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="py-4">
+            {{ form.as_p }}
+        </div>
+
+        {% if form.errors or form.non_field_errors %}
+            <div class="mb-3 p-6 bg-red rounded-2">
+                {% for field in form %}
+                    {{ field.errors }}
+                {% endfor %}
+
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <div class="d-flex justify-content-center">
+            <button class="py-2 px-5 text-lg bg-success rounded-2 text-white text-center">Submit</button>
+        </div>
+    </form>
+{% endblock %}

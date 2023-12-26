@@ -1,0 +1,25 @@
+{% extends "dashboard-base.html" %}
+
+{% block title %}Jadwal Asisten{% endblock %}
+
+{% block dashboard-content %}
+    <h1 class="mt-2 mb-4 text-center">Jadwal Asisten</h1>
+
+
+    {% csrf_token %}
+
+    <ul class="list-group">
+        {% for jadwal in jadwals %}
+
+                <li class="list-group-item">
+                    <p>{{jadwal.id_modul}}</p>
+                    <p class="mb-2">Kelompok {{jadwal.id_kelompok.nama_kelompok}}</p>
+                    <p class="mb-0">Tanggal : {{jadwal.tanggal}}</p>
+                    <p class="mb-0">Jam : {{jadwal.jam}}</p>
+                    <p class="mb-0">Asisten : {{jadwal.id_asisten}}</p>
+                </li>
+            
+        {% endfor %}
+    </ul>
+
+{% endblock %}

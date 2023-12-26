@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="row h-100">
+    <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 ms-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <span class="fs-4">Dashboard</span>
+        </a>
+        <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="mb-1 list-unstyled ps-0 ">
+                    <a href="/edit/" class="nav-link link-dark fw-medium">
+                    Biodata
+                    </a>
+                </li>
+                <li class="mb-1 list-unstyled ps-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed fw-lighter" data-bs-toggle="collapse" data-bs-target="#praktikan-collapse" aria-expanded="false">
+                      Praktikan
+                    </button>
+                    <div class="collapse" id="praktikan-collapse" style="">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="/ambil/" class="link-dark rounded">Pendaftaran Praktikum</a></li>
+                            <li><a href="/kelompok/" class="link-dark rounded">Kelompok Praktikum</a></li>
+                            <li><a href="/jadwal/" class="link-dark rounded">Jadwal Praktikum</a></li>
+                            <li><a href="/nilai/" class="link-dark rounded">Nilai Praktikum</a></li>
+                          </ul>
+                    </div>
+                </li>
+                <li class="mb-1 list-unstyled ps-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed fw-lighter" data-bs-toggle="collapse" data-bs-target="#asisten-collapse" aria-expanded="false">
+                      Asisten
+                    </button>
+                    <div class="collapse" id="asisten-collapse" style="">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="/jadwal-asisten/" class="link-dark rounded">Jadwal Asisten</a></li>
+                            <li><a href="/input-nilai/" class="link-dark rounded">Input Nilai</a></li>
+                          </ul>
+                    </div>
+                </li>
+            </ul>
+        <hr>
+        <div>
+            <a href="/logout" class=" align-items-center link-dark text-decoration-none mb-1 list-unstyled ps-3">
+              <strong>Keluar</strong>
+            </a>
+          </div>
+    </div>
+
+    <div class="col d-flex flex-column flex-shrink-0 p-3 bg-white">
+        {% block dashboard-content%}
+        
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

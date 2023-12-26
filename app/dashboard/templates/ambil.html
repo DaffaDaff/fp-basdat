@@ -1,0 +1,21 @@
+{% extends "dashboard-base.html" %}
+
+{% block title %}Ambil Praktikum{% endblock %}
+
+
+{% block dashboard-content %}
+    <h1 class="mt-2 mb-4 text-center">Ambil Praktikum</h1>
+
+    <form method="post" class="form-group">
+        {% csrf_token %}
+        
+        <div class="form-group col-md-12 mb-3">
+            <label>Pilih Praktikum</label>
+            {{ form.id_praktikum }}
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <button class="py-2 px-5 text-lg bg-success rounded-2 text-white text-center">Submit</button>
+        </div>
+    </form>
+{% endblock %}
